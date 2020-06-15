@@ -53,7 +53,7 @@ namespace SeniorWebAPIProjectV3.Services
         public async Task<List<User>> SearchUserByFancyNameAsync(string fancyName)
         {
             var resultList =
-                await _dataContext.Users.Where(user => user.userFancies.Contains(fancyName)).ToListAsync();
+                await _dataContext.Users.Where(user => user.UserFancies.Contains(fancyName)).ToListAsync();
 
             return resultList;
         }
@@ -61,7 +61,7 @@ namespace SeniorWebAPIProjectV3.Services
         public async Task<List<User>> SearchUserByAbilityNameAsync(string abilityName)
         {
             var resultList =
-                await _dataContext.Users.Where(user => user.userAbilities.Contains(abilityName)).ToListAsync();
+                await _dataContext.Users.Where(user => user.UserAbilities.Contains(abilityName)).ToListAsync();
 
             return resultList;
         }
@@ -69,14 +69,14 @@ namespace SeniorWebAPIProjectV3.Services
         public async Task<User> GetUserByUserIdAsync(string userId)
         {
             var user =
-                await _dataContext.Users.SingleOrDefaultAsync(user1 => user1.userID == userId);
+                await _dataContext.Users.SingleOrDefaultAsync(user1 => user1.Id == userId);
             return user;
         }
 
         public async Task<User> GetUserByUserNameAsync(string userName)
         {
             var user =
-                await _dataContext.Users.SingleOrDefaultAsync(user1 => user1.userName == userName);
+                await _dataContext.Users.SingleOrDefaultAsync(user1 => user1.UserName == userName);
             return user;
         }
 

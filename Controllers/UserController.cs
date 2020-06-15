@@ -57,7 +57,7 @@ namespace SeniorWebAPIProjectV3.Controllers
 
             if (updated)
             {
-                return await _userService.GetUserByUserIdAsync(user.userID);
+                return await _userService.GetUserByUserIdAsync(user.Id);
             }
 
             return null;
@@ -82,7 +82,7 @@ namespace SeniorWebAPIProjectV3.Controllers
                 return null;
             }
 
-            return await _userService.GetUserByUserIdAsync(user.userID);
+            return await _userService.GetUserByUserIdAsync(user.Id);
         }
     }
 }
