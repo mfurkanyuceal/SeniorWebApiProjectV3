@@ -20,7 +20,7 @@
     "SeniorWebAPIProjectV3": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://127.0.0.1:5005",
+      "applicationUrl": "http://3.17.143.222:5005",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
