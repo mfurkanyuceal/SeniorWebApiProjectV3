@@ -14,6 +14,7 @@ namespace SeniorWebAPIProjectV3
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            // 172.31.23.113
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
