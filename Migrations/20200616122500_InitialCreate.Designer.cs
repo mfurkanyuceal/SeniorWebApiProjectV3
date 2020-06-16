@@ -11,8 +11,8 @@ using SeniorWebAPIProjectV3.DBContext;
 namespace SeniorWebAPIProjectV3.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200615112759_initialmigrate5")]
-    partial class initialmigrate5
+    [Migration("20200616122500_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

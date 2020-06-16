@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace SeniorWebAPIProjectV3.Migrations
 {
-    public partial class initialmigrate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,9 +14,9 @@ namespace SeniorWebAPIProjectV3.Migrations
                 {
                     AddressId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    latitude = table.Column<double>(nullable: false),
-                    longitude = table.Column<double>(nullable: false),
-                    description = table.Column<string>(nullable: true)
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,9 +34,6 @@ namespace SeniorWebAPIProjectV3.Migrations
                     receiverUserID = table.Column<string>(nullable: true),
                     receiverUserPhotoUrl = table.Column<string>(nullable: true),
                     receiverUserName = table.Column<string>(nullable: true),
-                    sendTime = table.Column<DateTime>(nullable: false),
-                    acceptTime = table.Column<DateTime>(nullable: false),
-                    swapTime = table.Column<DateTime>(nullable: false),
                     isAccepted = table.Column<bool>(nullable: false),
                     isContinue = table.Column<bool>(nullable: false),
                     isDone = table.Column<bool>(nullable: false),
@@ -59,24 +55,21 @@ namespace SeniorWebAPIProjectV3.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    userID = table.Column<string>(nullable: false),
-                    firstName = table.Column<string>(nullable: true),
-                    lastName = table.Column<string>(nullable: true),
-                    birthDate = table.Column<string>(nullable: true),
-                    gender = table.Column<string>(nullable: true),
-                    createdAt = table.Column<DateTime>(nullable: false),
-                    updatedAt = table.Column<DateTime>(nullable: false),
-                    isAdmin = table.Column<bool>(nullable: false),
-                    profilePhotoURL = table.Column<string>(nullable: true),
-                    userFancies = table.Column<List<string>>(nullable: true),
-                    userAbilities = table.Column<List<string>>(nullable: true),
+                    Id = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Gender = table.Column<string>(nullable: true),
+                    IsAdmin = table.Column<bool>(nullable: false),
+                    ProfilePhotoUrl = table.Column<string>(nullable: true),
+                    UserFancies = table.Column<List<string>>(nullable: true),
+                    UserAbilities = table.Column<List<string>>(nullable: true),
                     AddressId = table.Column<int>(nullable: true),
-                    userName = table.Column<string>(nullable: true),
-                    email = table.Column<string>(nullable: true)
+                    UserName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.userID);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Users_Address_AddressId",
                         column: x => x.AddressId,
