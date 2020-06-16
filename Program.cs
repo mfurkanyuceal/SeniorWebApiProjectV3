@@ -17,8 +17,8 @@ namespace SeniorWebAPIProjectV3
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseKestrel();
-                    webBuilder.UseUrls("http://172.31.23.113:5006");
-                    //webBuilder.UseUrls("http://localhost:5000");
+                    //webBuilder.UseUrls("http://172.31.23.113:5006");
+                    webBuilder.UseUrls("http://127.0.0.1:5000");
                     webBuilder.UseStartup<Startup>();
                 });
         }
