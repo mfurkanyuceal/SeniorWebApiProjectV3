@@ -13,14 +13,7 @@ namespace SeniorWebAPIProjectV3
     {
         public static void Main(string[] args)
         {
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseKestrel();
-                    webBuilder.UseUrls("http://172.31.23.113:5005");
-                    //webBuilder.UseUrls("http://localhost:5005");
-                    webBuilder.UseStartup<Startup>();
-                });
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
