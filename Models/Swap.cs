@@ -35,11 +35,11 @@ namespace SeniorWebAPIProjectV3.Models
 
         [JsonProperty("swapRate")] public long SwapRate { get; set; }
 
-        [JsonProperty("sendTime")] public DateTimeOffset SendTime { get; set; }
+        [JsonProperty("sendTime")] public DateTimeOffset? SendTime { get; set; }
 
-        [JsonProperty("acceptTime")] public DateTimeOffset AcceptTime { get; set; }
+        [JsonProperty("acceptTime")] public DateTimeOffset? AcceptTime { get; set; }
 
-        [JsonProperty("swapTime")] public DateTimeOffset SwapTime { get; set; }
+        [JsonProperty("swapTime")] public DateTimeOffset? SwapTime { get; set; }
     }
 
     public partial class Swap
