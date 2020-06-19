@@ -56,7 +56,7 @@ namespace SeniorWebAPIProjectV3.Services
         {
             var resultList =
                 await _dataContext.Swaps
-                    .Where(swap => (swap.senderUserID == userId || swap.receiverUserID == userId))
+                    .Where(swap => (swap.SenderUserId == userId || swap.ReceiverUserId == userId))
                     .ToListAsync();
 
             return resultList;
@@ -66,7 +66,7 @@ namespace SeniorWebAPIProjectV3.Services
         {
             var resultList =
                 await _dataContext.Swaps
-                    .Where(swap => (swap.senderUserName == userName || swap.receiverUserName == userName))
+                    .Where(swap => (swap.SenderUserName == userName || swap.ReceiverUserName == userName))
                     .ToListAsync();
 
             return resultList;
@@ -74,7 +74,7 @@ namespace SeniorWebAPIProjectV3.Services
 
         public async Task<Swap> GetSwapBySwapIdAsync(string swapId)
         {
-            return await _dataContext.Swaps.SingleOrDefaultAsync(swap => swap.swapID == swapId);
+            return await _dataContext.Swaps.SingleOrDefaultAsync(swap => swap.SwapId == swapId);
         }
 
         public async Task<bool> UpdateSwapAsync(Swap swap)

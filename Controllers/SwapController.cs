@@ -61,7 +61,7 @@ namespace SeniorWebAPIProjectV3.Controllers
         [HttpPost]
         public async Task<Swap> Update([FromBody] Swap swap)
         {
-            var tempSwap = await _swapService.GetSwapBySwapIdAsync(swap.swapID);
+            var tempSwap = await _swapService.GetSwapBySwapIdAsync(swap.SwapId);
 
             if (tempSwap == null)
             {
@@ -74,7 +74,7 @@ namespace SeniorWebAPIProjectV3.Controllers
 
             if (updatedSwap)
             {
-                return await _swapService.GetSwapBySwapIdAsync(swap.swapID);
+                return await _swapService.GetSwapBySwapIdAsync(swap.SwapId);
             }
 
             return null;
@@ -91,7 +91,7 @@ namespace SeniorWebAPIProjectV3.Controllers
                 return null;
             }
 
-            return await _swapService.GetSwapBySwapIdAsync(swap.swapID);
+            return await _swapService.GetSwapBySwapIdAsync(swap.SwapId);
         }
     }
 }
