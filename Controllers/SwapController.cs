@@ -7,7 +7,7 @@ using SeniorWebAPIProjectV3.Services;
 
 namespace SeniorWebAPIProjectV3.Controllers
 {
-    public class SwapController : ControllerBase
+    public class SwapController : Controller
     {
         private readonly ILogger<SwapController> _logger;
         private readonly ISwapService _swapService;
@@ -50,12 +50,7 @@ namespace SeniorWebAPIProjectV3.Controllers
 
             var deleted = await _swapService.DeleteSwapBySwapIdAsync(swapId);
 
-            if (deleted)
-            {
-                return true;
-            }
-
-            return false;
+            return deleted;
         }
 
         [HttpPost]
@@ -84,6 +79,7 @@ namespace SeniorWebAPIProjectV3.Controllers
         [HttpPost]
         public async Task<Swap> Create([FromBody] Swap swap)
         {
+            
             var created = await _swapService.AddSwapAsync(swap);
 
             if (!created)
