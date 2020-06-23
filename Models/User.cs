@@ -47,5 +47,8 @@ namespace SeniorWebAPIProjectV3.Models
         [JsonProperty("city")]
         public string City { get; set; }
         
+        [JsonProperty("district")]
+        public string District { get; set; }
+        
     }
 }

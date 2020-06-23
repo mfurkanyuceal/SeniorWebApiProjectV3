@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SeniorWebAPIProjectV3.DBContext;
@@ -10,9 +11,10 @@ using SeniorWebAPIProjectV3.DBContext;
 namespace SeniorWebAPIProjectV3.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200619184333_dateTimeNullableMigrate")]
+    partial class dateTimeNullableMigrate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,6 @@ namespace SeniorWebAPIProjectV3.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("District")
                         .HasColumnType("text");
 
                     b.Property<double>("Latitude")
@@ -58,25 +57,22 @@ namespace SeniorWebAPIProjectV3.Migrations
                     b.Property<bool>("IsAccepted")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsCancel")
-                        .HasColumnType("boolean");
-
                     b.Property<bool>("IsContinue")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("IsDone")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("IsReject")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("ReceiverField")
                         .HasColumnType("text");
 
-                    b.Property<double>("ReceiverRate")
-                        .HasColumnType("double precision");
-
                     b.Property<string>("ReceiverUserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceiverUserName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceiverUserPhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("SendTime")
@@ -85,26 +81,25 @@ namespace SeniorWebAPIProjectV3.Migrations
                     b.Property<string>("SenderField")
                         .HasColumnType("text");
 
-                    b.Property<double>("SenderRate")
-                        .HasColumnType("double precision");
-
                     b.Property<string>("SenderUserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SenderUserName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SenderUserPhotoUrl")
                         .HasColumnType("text");
 
                     b.Property<int?>("SwapAddressAddressId")
                         .HasColumnType("integer");
 
-                    b.Property<double>("SwapRate")
-                        .HasColumnType("double precision");
+                    b.Property<long>("SwapRate")
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset?>("SwapTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("SwapId");
-
-                    b.HasIndex("ReceiverUserId");
-
-                    b.HasIndex("SenderUserId");
 
                     b.HasIndex("SwapAddressAddressId");
 
@@ -155,14 +150,6 @@ namespace SeniorWebAPIProjectV3.Migrations
 
             modelBuilder.Entity("SeniorWebAPIProjectV3.Models.Swap", b =>
                 {
-                    b.HasOne("SeniorWebAPIProjectV3.Models.User", "ReceiverUser")
-                        .WithMany()
-                        .HasForeignKey("ReceiverUserId");
-
-                    b.HasOne("SeniorWebAPIProjectV3.Models.User", "SenderUser")
-                        .WithMany()
-                        .HasForeignKey("SenderUserId");
-
                     b.HasOne("SeniorWebAPIProjectV3.Models.Address", "SwapAddress")
                         .WithMany()
                         .HasForeignKey("SwapAddressAddressId");
