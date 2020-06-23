@@ -18,7 +18,7 @@ namespace SeniorWebAPIProjectV3.Models
         public string SenderUserId { get; set; }
 
         public User SenderUser { get; set; }
-        [JsonProperty("senderRate")] public double SenderRate { get; set; }
+        [JsonProperty("senderRate")] public double? SenderRate { get; set; }
         [JsonProperty("senderField")] public string SenderField { get; set; }
 
         [JsonProperty("receiverUserID")]
@@ -26,19 +26,19 @@ namespace SeniorWebAPIProjectV3.Models
         public string ReceiverUserId { get; set; }
 
         public User ReceiverUser { get; set; }
-        [JsonProperty("receiverRate")] public double ReceiverRate { get; set; }
+        [JsonProperty("receiverRate")] public double? ReceiverRate { get; set; }
         [JsonProperty("receiverField")] public string ReceiverField { get; set; }
 
 
-        [JsonProperty("isAccepted")] public bool IsAccepted { get; set; }
+        [JsonProperty("isAccepted")] public bool? IsAccepted { get; set; }
 
-        [JsonProperty("isContinue")] public bool IsContinue { get; set; }
+        [JsonProperty("isContinue")] public bool? IsContinue { get; set; }
 
-        [JsonProperty("isDone")] public bool IsDone { get; set; }
-        [JsonProperty("isReject")] public bool IsReject { get; set; }
-        [JsonProperty("isCancel")] public bool IsCancel { get; set; }
+        [JsonProperty("isDone")] public bool? IsDone { get; set; }
+        [JsonProperty("isReject")] public bool? IsReject { get; set; }
+        [JsonProperty("isCancel")] public bool? IsCancel { get; set; }
 
-        [JsonProperty("swapRate")] public double SwapRate { get; set; }
+        [JsonProperty("swapRate")] public double? SwapRate { get; set; }
 
         [JsonProperty("sendTime")] public DateTimeOffset? SendTime { get; set; }
 
