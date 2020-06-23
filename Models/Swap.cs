@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SeniorWebAPIProjectV3.Models
 {
     using System;
@@ -11,16 +13,22 @@ namespace SeniorWebAPIProjectV3.Models
 
         [JsonProperty("swapAddress")] public Address SwapAddress { get; set; }
 
-        [JsonProperty("senderUserID")] public string SenderUserId { get; set; }
-        [JsonProperty("senderUser")] public User SenderUser { get; set; }
+        [JsonProperty("senderUserID")]
+        [ForeignKey("SenderUser")]
+        public string SenderUserId { get; set; }
+
+        public User SenderUser { get; set; }
         [JsonProperty("senderRate")] public double SenderRate { get; set; }
         [JsonProperty("senderField")] public string SenderField { get; set; }
 
-        [JsonProperty("receiverUserID")] public string ReceiverUserId { get; set; }
-        [JsonProperty("receiverUser")] public User ReceiverUser { get; set; }
+        [JsonProperty("receiverUserID")]
+        [ForeignKey("ReceiverUser")]
+        public string ReceiverUserId { get; set; }
+
+        public User ReceiverUser { get; set; }
         [JsonProperty("receiverRate")] public double ReceiverRate { get; set; }
         [JsonProperty("receiverField")] public string ReceiverField { get; set; }
-        
+
 
         [JsonProperty("isAccepted")] public bool IsAccepted { get; set; }
 

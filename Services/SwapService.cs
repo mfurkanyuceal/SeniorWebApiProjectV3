@@ -66,6 +66,8 @@ namespace SeniorWebAPIProjectV3.Services
         {
             var resultList =
                 await _dataContext.Swaps
+                    .Include(swap => swap.SenderUser)
+                    .Include(swap => swap.ReceiverUser)
                     .Where(swap => (swap.SenderUser.UserName == userName || swap.ReceiverUser.UserName == userName))
                     .ToListAsync();
 
